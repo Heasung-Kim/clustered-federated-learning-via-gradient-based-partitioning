@@ -259,7 +259,7 @@ class CentralUnit:
                 consistency_cnt = 0
 
             elif c_round % self.clustering_period == 0 and c_round < self.clustering_termination_threshold:
-                # global_logger.info("Spectral Clustering.")
+                criterion_model_index = (criterion_model_index + 1) % self.n_models
                 info = spectral_clustering_and_matching(gradient_profile_matrix, n_centers=self.n_models,
                                                         n_clients=self.n_clients,
                                                         estimated_cluster_ids_old=self.estimated_cluster_ids)
